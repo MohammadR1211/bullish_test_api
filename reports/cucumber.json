@@ -1,0 +1,241 @@
+[
+  {
+    "description": "    As a QA\n    I verify ADD functionality works fine",
+    "keyword": "Feature",
+    "name": "Add new student",
+    "line": 1,
+    "id": "add-new-student",
+    "tags": [],
+    "uri": "src/features/studentCRUD.feature",
+    "elements": [
+      {
+        "id": "add-new-student;attempt-to-create-student-with-invalid",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Attempt to create student with invalid",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I have student {\"id\": 6, \"lastName\": \"brown\", \"nationality\": \"american\", \"studentClass\": \"12\" }",
+            "match": {
+              "location": "src/steps/Given.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I send POST call to add student",
+            "match": {
+              "location": "src/steps/When.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "I should not get OK response",
+            "match": {
+              "location": "src/steps/Then.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "add-new-student;create-valid-student",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Create valid student",
+        "tags": [
+          {
+            "name": "@createstudent",
+            "line": 14
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 16,
+            "name": "I have student {\"firstName\": \"dan\", \"id\": 6, \"lastName\": \"brown\", \"nationality\": \"american\", \"studentClass\": \"12\" }",
+            "match": {
+              "location": "src/steps/Given.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "I send POST call to add student",
+            "match": {
+              "location": "src/steps/When.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "I should get OK response",
+            "match": {
+              "location": "src/steps/Then.js:7"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 2000000,
+              "error_message": "AssertionError: expected undefined to equal 200\n    at CustomWorld.<anonymous> (/Users/mohammad.rahman/Documents/bullish/bullish_test_api/src/steps/Then.js:9:48)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "add-new-student;fetch-student",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "Fetch Student",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 24,
+            "name": "I fetch using 6",
+            "match": {
+              "location": "src/steps/Given.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 25,
+            "name": "I send GET call to fetch student using id",
+            "match": {
+              "location": "src/steps/When.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 26,
+            "name": "I should have received [{\"id\": 6, \"firstName\": \"dan\", \"lastName\": \"brown\", \"studentClass\": \"12\", \"nationality\": \"american\"}] correctly in response",
+            "match": {
+              "location": "src/steps/Then.js:12"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 1000000,
+              "error_message": "AssertionError: expected undefined to deeply equal [ { id: 6, firstName: 'dan', …(3) } ]\n    at CustomWorld.<anonymous> (/Users/mohammad.rahman/Documents/bullish/bullish_test_api/src/steps/Then.js:13:51)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "add-new-student;update-student",
+        "keyword": "Scenario",
+        "line": 36,
+        "name": "Update Student",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 32,
+            "name": "I send PUT call to update {\"id\": 6, \"firstName\": \"dan\"}",
+            "match": {
+              "location": "src/steps/When.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 33,
+            "name": "I should have received {\"id\": 6, \"firstName\": \"dan\", \"lastName\": \"brown\", \"studentClass\": \"12\", \"nationality\": \"american\"} correctly in response",
+            "match": {
+              "location": "src/steps/Then.js:12"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 1000000,
+              "error_message": "AssertionError: expected undefined to deeply equal { id: 6, firstName: 'dan', …(3) }\n    at CustomWorld.<anonymous> (/Users/mohammad.rahman/Documents/bullish/bullish_test_api/src/steps/Then.js:13:51)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "add-new-student;delete-student",
+        "keyword": "Scenario",
+        "line": 43,
+        "name": "Delete Student",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 39,
+            "name": "I sent DELETE call to delete student with id {\"id\": 6}",
+            "match": {
+              "location": "src/steps/When.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 40,
+            "name": "I should get 200 response code",
+            "match": {
+              "location": "src/steps/Then.js:16"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 1000000,
+              "error_message": "AssertionError: expected undefined to equal 200\n    at CustomWorld.<anonymous> (/Users/mohammad.rahman/Documents/bullish/bullish_test_api/src/steps/Then.js:17:48)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
